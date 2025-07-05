@@ -137,7 +137,7 @@ def startLoop_gui(model):
             frame_buffer.append(frame)
 
             if len(frame_buffer) == window_size:
-                # 滿 100 幀才推論
+                # 滿 size才推論
                 data_seq = np.array(frame_buffer)               # (100, 32, 32)
                 data_seq = np.expand_dims(data_seq, axis=-1)    # (100, 32, 32, 1)
                 data_seq = np.expand_dims(data_seq, axis=0)     # (1, 100, 32, 32, 1)
