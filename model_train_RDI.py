@@ -101,6 +101,7 @@ def fit_model():
     wandb.run.name = f"RDI_gesture_model_slide_window_{dense_hidden_units}_{LSTM_units}_{dropout_rate}_{epochs}"
     
     model = tf.keras.Sequential([
+        #timedistributed is to reamin the time structure of the input data
         layers.TimeDistributed(layers.Conv2D(32, (3, 3), padding='same', activation='relu'),input_shape=input_shape),
         layers.TimeDistributed(layers.MaxPooling2D((3, 3))),
         #layers.Dropout(0.3),
